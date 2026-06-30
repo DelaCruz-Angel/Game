@@ -1,0 +1,248 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    font-family:'Press Start 2P', cursive;
+}
+
+/* Background */
+
+.sky{
+    position:relative;
+    width:100vw;
+    height:100vh;
+
+    background:
+    linear-gradient(#ffd9ec,#ffeaf5,#fff7fb);
+
+    overflow:hidden;
+}
+
+/* Pixel Grid */
+
+.sky::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background-image:
+
+    linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+
+    background-size:32px 32px;
+}
+
+/* CLOUD */
+
+.cloud{
+
+    position:absolute;
+
+    width:170px;
+    height:60px;
+
+    background:white;
+
+    image-rendering:pixelated;
+
+    box-shadow:
+    32px 0 white,
+    64px 0 white,
+    96px 0 white,
+
+    16px -16px white,
+    48px -16px white,
+    80px -16px white,
+
+    16px 16px white,
+    48px 16px white,
+    80px 16px white;
+
+    animation:cloudMove linear infinite;
+}
+
+.c1{
+    left:8%;
+    animation-duration:18s;
+}
+
+.c2{
+    left:70%;
+    animation-duration:25s;
+    animation-delay:-8s;
+}
+
+.c3{
+    left:40%;
+    animation-duration:22s;
+    animation-delay:-14s;
+}
+
+.c4{
+    left:20%;
+    animation-duration:20s;
+}
+
+.c5{
+    left:82%;
+    animation-duration:28s;
+}
+
+@keyframes cloudMove{
+
+    from{
+        transform:translateY(120vh);
+    }
+
+    to{
+        transform:translateY(-220px);
+    }
+
+}
+
+/* START BOX */
+
+.start-box{
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:360px;
+
+    text-align:center;
+
+    background:#fff6fb;
+
+    border:6px solid #ff8ec7;
+
+    padding:35px;
+
+    box-shadow:
+
+    8px 8px 0 #ffb6d8,
+    16px 16px 0 #ffd6ea;
+
+    animation:float 2s ease-in-out infinite;
+}
+
+.start-box h1{
+
+    color:#ff4f9f;
+    font-size:28px;
+
+    margin-bottom:25px;
+
+}
+
+.start-box p{
+
+    font-size:11px;
+    color:#888;
+
+    animation:blink 1s infinite;
+
+}
+
+#startBtn{
+    font-family:'Press Start 2P', cursive;
+    font-size:24px;
+
+    background:#ff8ec7;
+    color:white;
+
+    border:5px solid #ff5ca8;
+
+    padding:20px 40px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+#startBtn:hover{
+    transform:scale(1.05);
+    background:#ff74bb;
+}
+
+#startBtn:active{
+    transform:scale(.95);
+}
+
+/* Floating */
+
+@keyframes float{
+
+0%{
+
+transform:translate(-50%,-50%);
+
+}
+
+50%{
+
+transform:translate(-50%,-58%);
+
+}
+
+100%{
+
+transform:translate(-50%,-50%);
+
+}
+
+}
+
+/* Blink */
+
+@keyframes blink{
+
+50%{
+
+opacity:0;
+
+}
+
+}
+
+/* Hearts */
+
+.heart{
+
+position:absolute;
+
+font-size:22px;
+
+animation:heartFloat linear forwards;
+
+opacity:.8;
+
+}
+
+@keyframes heartFloat{
+
+from{
+
+transform:translateY(100vh);
+
+opacity:1;
+
+}
+
+to{
+
+transform:translateY(-120px);
+
+opacity:0;
+
+}
+
+}
